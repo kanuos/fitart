@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css?family=Black+Ops+One|Oswald:300,400&display=swap');
+
+:root{
+  --red : rgb(129,7,6);
+  --green : rgb(6,68,63);
+  --black-1 : rgb(7, 24, 22);
+  --black-2 : rgb(26, 5, 5);
+}
+
+*,*::after,*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+}
+
+html{
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 12rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+.navbar{
+  height: 9rem;
+  padding: 5rem;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  z-index: 1;
+}
+
+.navbar-brand,
+.navbar-brand:link,
+.navbar-brand:focus,
+.navbar-brand:active{
+  font-family: 'Black Ops One', cursive;   
+  font-size: 3.5rem;
+  text-decoration: none;
+  color: white;
+  transition: transform .3s ease;
+  transform-origin: center;
+  z-index: 10;
+}
+
+.navbar-brand:hover{
+  transform: scale(1.2);
+  backface-visibility: hidden;
+}
+
+
+
+.navbar-toggler{
+  font-weight: bolder;
+  background: none;
+  font-size: 2rem;
+  color: white;
+  border: none;
+  transition: all .2s;
+  transform-origin: center;
+  outline: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.navbar-toggler:hover{
+  font-size: 2.25rem;
+}
+
+.navbar-toggler:active{
+  font-size: 1.95rem;
+  outline: none;
+}
+
+.mobile{
+  position: fixed;
+  top: 0;
+  padding: 10rem 0;
+  left: 0;
+  right: 0;
+  /* height: calc(100vh - 9rem); */
+  transition: all .2s;
+  transform-origin: top;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 5;
+}
+
+.mobile-true{
+  display: none;
+}
+
+.mobile-false{
+  display: flex;
+  height: 100vh;
+  /* background-image: linear-gradient(to top, var(--red), var(--black-2)); */
+  background-image: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.85)),url('./assets/floor.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.navbar-link{
+  text-decoration: none;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  color: #777;
+  transition: all .2s;
+  transform-origin: center;
+  position: relative;
+}
+
+.navbar-link:nth-child(2){
+  text-transform: none;
+}
+
+.navbar-link::after{
+  content: '';
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background: #ddd;
+  top: -3px;
+  transform: scale(0);
+  transition: all .3s ease-in;
+  transform-origin: center;
+}
+.navbar-link:nth-child(6)::after{
+  transform: scale(0);
+  background-color: transparent;
+}
+
+.navbar-link:hover:not(:nth-child(6)){
+  transform: scale(1.25);
+  color: #ddd;
+}
+
+.navbar-link:hover::after{
+  transform: scale(1);
+}
+
+ .current-false{
+   color: #777;
+   transform: scale(1);
+ }
+
+.navbar-link:not(:nth-child(6)):focus,
+.navbar-link:not(:nth-child(6)):active,
+.current-true{
+  transform: scale(1.5);
+  color: white;
+}
+
+.join-now, .join-now:focus{
+  padding: 1rem 2.5rem;
+  color: white;
+  background: maroon;
+  transition: all .4s ease;
+}
+.join-now:hover{
+  box-shadow: 0 2px 1rem rgba(0,0,0,.2);
+  background-color: white;
+  color: maroon;
+}
+
+.join-now:active{
+  transform: scale(1.2);
+}
+
+@media (min-width:800px){
+  .navbar{
+    padding: 2rem 4rem;
+  }
+  
+  .navbar-toggler{
+    display: none;
+    position: absolute;
+  }
+
+  .mobile{
+    position: relative;
+    padding: 0;
+    top: 0;
+    right: 1rem;
+    flex-direction: row;
+    width: 60%;
+    height: 5rem;
+  }
+  .navbar-link{
+    color: #777;
+  }
+
+  .mobile-true,.mobile-false{
+    display: flex;
+    height: 80%;
+    background-image: none;
+  }
+  .navbar-link::after{
+    top: 100%;
+  }
+  .join-now{
+    color: white;
+    background: maroon;
+  }
+}
+
+@media (min-width:900px){
+  .mobile{
+    width: 45%;
+  }
+}
+
+/* ------------------------------------------------------------------------ */
+/* --------------------------  Header Section ----------------------------- */
+/* ------------------------------------------------------------------------ */
+
+.header-section{
+  width: 100%;
+  height: 80vh;
+  margin-top: -15rem;
+  padding: 0;
+  position: relative;
+  clip-path: polygon(0 0 , 100% 0, 100% 85%, 50% 100%, 0% 85%);
+}
+
+.hero-heading{
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  height: 52%;
+  transform: translate(-50%, -50%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.heading__header{
+  font-size: 4rem;
+  color: #ddd;
+  font-weight: 300;
+}
+
+.heading__header--sub{
+  left:-0%;
+  text-align: left;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.header-logo{
+  color: maroon;
+  font-family: 'Black Ops One', cursive;
+  font-size: 4.5rem;
+  margin-right: 1rem;
+}
+
+
+.hero-video{
+  height: 100%;
+  width:100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(18%);
+}
+
+
+
+.hero-heading-sub{
+  color: white;
+  z-index: 10;
+}
+
+.next-btn{
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  color: #777;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  animation: vertical_loop infinite 1s;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.next-btn:hover{
+  font-size: 2.5rem;
+  color: white;
+}
+
+@keyframes vertical_loop{
+  50%{
+    transform: translateY(-6px);
+  }
+}
+
+
+
+.next-btn:focus{
+  outline: none;
+}
+
+@media (min-width:1000px){
+  .header-section{
+    height: calc(85vh + 1rem);
+    clip-path: polygon(0 0 , 100% 0, 100% 100%, 0% 80%);
+  }
+  .next-btn{
+    bottom: 14%;
+  }
+}
+
+/* ------------------------------------------------------------------------ */
+/* --------------------------  block Section ----------------------------- */
+/* ------------------------------------------------------------------------ */
+
+.block{
+  height: 33vh;
+  margin-top: -15rem;
+  background-image: linear-gradient(to right, var(--black-1), var(--black-2) 60%, var(--red));
+  /* background-image: linear-gradient(to right,var(--green) 60%, var(--red)); */
+}
+
+/* ------------------------------------------------------------------------ */
+/* --------------------------  about Section ------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+#about{
+  min-height: 200vh;
+  background: rgb(161, 157, 157);
+  clip-path: polygon(0 10rem, 100% 0, 100% 100%, 0 100%);
+  margin-top: -10rem;
+  padding: 12rem 3rem 5rem 3rem;
+}
+
+@media (min-width:800px){
+  #about{
+    clip-path: polygon(0 5rem, 100% 0, 100% 100%, 0 100%);
+    margin-top: -5rem;
+  }
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* -----------------------------  Price Page ------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+
+.price{
+  background-image: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.7)), url('./assets/price_page.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top left;
+  min-height: 120vh;
+  margin-top: -15rem;
+  padding: 12rem 3rem 3rem 3rem;
+}
+
+.heading-section{
+  font-size: 3rem;
+  text-align: center;
+  color: #ddd;
+  margin: 4rem 1rem;
+  font-family: 'Black Ops One';
+}
+
+.price-box{
+  color: #777;
+  
+}
