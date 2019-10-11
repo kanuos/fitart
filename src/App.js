@@ -1,19 +1,34 @@
-import React from 'react';
-import Home from './components/Home';
+import React, { lazy, Suspense } from 'react';
+import { Route, Switch} from 'react-router-dom';
+
 import TrainerContextProvider from './context/TrainerContext';
-import Pricing from './components/Pricing';
-// import Trainers from './components/Trainers';
+import Lazy from './components/Lazy';
+import ErrorPage from './components/ErrorPage';
 
 
 function App() {
+  const Home = lazy(()=> import('./components/Home'));
+  const FitArmy = lazy(()=> import('./components/FitArmy'));
+  const Pricing = lazy(()=> import('./components/Pricing'));
+  const Contact = lazy(()=> import('./components/Contact'));
+  const About = lazy(()=> import('./components/About'));
+  const IndividualExpert = lazy(()=> import('./components/IndividualExpert'));
   return (
-    <div className="App">
       <TrainerContextProvider>
-        <Home />
-        {/* <Pricing /> */}
-        {/* <Trainers /> */}
+          <Suspense fallback= {<Lazy/>}>
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/home" component={Home} />
+            <Route path="/fitarmy" component={FitArmy} />
+            <Route path="/about" component={About} />
+            <Route path="/price" component={Pricing} />
+            <Route path="/contact" component={Contact} />
+            <Route path='/error' component={ErrorPage} />
+            <Route exact path="/staff/:id" component={IndividualExpert} />
+            <Route component={ErrorPage} />
+        </Switch>
+          </Suspense>
       </TrainerContextProvider>
-    </div>
   );
 }
 

@@ -4,16 +4,15 @@ import vid from '../assets/hero.mp4';
 import hero from '../assets/floor.jpg';
 import Footer from './Footer';
 import { FaAngleDown } from 'react-icons/fa';
-import About from './About';
+import AboutHome from './AboutHome';
 
 const Home = () => {
     return (
-        <div>
+        <main>
             <Navbar />
             <header className="header-section" onContextMenu={e=>e.preventDefault()}>
                 <video autoPlay playsInline muted loop className="hero-video">
                     <source  src={vid} type="video/mp4"/>
-                    <source srcset=""/>
                     <img src={hero} alt="man lifting weights"/>
                     Your browser does not support the video. Sorry for the inconvenience.
                 </video>
@@ -36,10 +35,10 @@ const Home = () => {
             <section className="block">
             </section>
             <div id="about">
-                <About />
+                <AboutHome />
             </div>
             <Footer />
-        </div>
+        </main>
     )
 }
 
