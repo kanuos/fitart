@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
-import {TrainerContext} from '../context/TrainerContext';
+import React from 'react'
+// import {TrainerContext} from '../context/TrainerContext';
 
 const AboutHome = () => {
-    const value  = useContext(TrainerContext);
-    console.log("From the about.jsx",value);
+    // const value  = React.useContext(TrainerContext);
     return (
         <section className="about">
             <h1>who are we</h1>    {/* text center and heading section*/}

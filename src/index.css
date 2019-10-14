@@ -91,7 +91,7 @@ body {
   left: 0;
   right: 0;
   background: transparent;
-  z-index: 1;
+  z-index: 10;
 }
 
 .navbar-brand,
@@ -461,10 +461,10 @@ body {
 }
 .individual__price{
   margin: 1rem;
-  background-image: linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,.85)),url('./assets/dumbbells.jpg');
-  background-size: cover;
+  background-image: linear-gradient(rgba(255,255,255,.78),rgba(255,255,255,.75)),url('./assets/price_page.jpg');
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: right center;
   padding: 3rem 4rem 1rem 4rem;
   min-height: 40rem;
   max-width:40rem;
@@ -1072,14 +1072,213 @@ body {
     grid-row: 6/6;
     grid-column: 1/-1;
   }
-  
 
-  /*
-  
-  
-  .back-btn:hover{
-    color: var(--red);
-    filter: brightness(150%);
-    transform: translateY(-2px) scale(1.15);
-  } */
+}
+
+
+/* ------------------------------------------------------------------ */
+/* ----------------------  Sign/Log Page ---------------------------- */
+/* ------------------------------------------------------------------ */
+
+.register-content{
+  min-height: 130vh;
+  width: 100%;
+  margin: -21rem auto -0 auto;
+  background-image: url('./assets/sign.jpg');
+  filter: brightness(50%);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-toggle-box{
+  height: 3rem;
+  width: 10rem;;
+  background-image: linear-gradient(to right, var(--red), var(--black-2),crimson);
+  border: 1.5px solid white;
+  border-radius: 4rem;
+  position: fixed;
+  top: 20rem;
+  padding: rem;
+  margin: 1rem;
+  outline: none;
+  box-shadow: 0 2px 1rem var(--green);
+}
+
+.sign-toggle-box::before{
+  content: 'LOG IN';
+  height: 3rem;
+  color: white;
+  position: absolute;
+  left: -50%;
+  top: .5rem;
+}
+.sign-toggle-box::after{
+  content: 'REGISTER';
+  height: 3rem;
+  color: white;
+  position: absolute;
+  right: -60%;
+  top:.5rem;
+}
+
+.sign-toggle{
+  height: 100%;
+  width:50%;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  background-image: linear-gradient(to bottom, white, grey, white);;
+  border-radius: 4rem;
+  border: 1px solid black;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+
+.sign-toggle-false{
+  left:50%;
+}
+.sign-toggle-true{
+  left: 0%;
+}
+
+.log-form{
+  width: 80%;
+  margin: 0 auto;;
+  max-width: 100rem;
+}
+
+.gridy{
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.log-form .gridy{
+  margin-top: -8rem;
+  padding: 3rem 0;
+  height: 100%;
+}
+
+.gridy input{
+  display: block;
+  width: 90%;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+  cursor: default;
+  caret-color: var(--black-2);
+
+}
+
+.gridy input:focus,
+.gridy input:active{
+  outline: none;
+  border-bottom: 1px solid var(--red);
+}
+
+.register-btn{
+  display: block;
+  width: 90%;
+  margin: 2rem auto;
+  padding: .5rem 0;
+  color: white;
+  background: var(--red);
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .3s;
+}
+.register-btn:active{
+  width: 88%;
+}
+.register-btn:hover,
+.register-btn:focus{
+  background: crimson;
+}
+
+.register-form{
+  margin-top: 0rem;
+  background: rgba(250,250,250,.5);
+  border-radius: 1rem;;
+  padding: 2rem 0;
+  height: auto;
+  width: 80%;
+  max-width: 50rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.register-form .gridy{
+  background: none;
+  flex-basis: 50%;
+  max-width: 50rem;
+  height: 50%;
+  justify-content: flex-start;
+}
+
+
+
+/* -------------------------------------------------------------------- */
+/* --------------------- FitArmy Page --------------------------------- */
+/* -------------------------------------------------------------------- */
+
+.fit-army-container{
+  margin-top: -15rem;
+}
+.fit-army-hero{
+  height: 90vh;  
+  background-image: url('./assets/fitarmy.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.fit-army-hero::after{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  content: '';
+  background-image: linear-gradient(to right bottom, rgba(112, 66, 20, 0.5) 0%, rgba(97, 51, 5, 0.82) 100%);
+}
+
+.fit-text{
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  width: 100%;
+}
+.fit-header{
+  font-size: 3rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: lighter;
+}
+.fit-header-main{
+  font-size: 6rem;
+  text-align: center;
+}
+
+.fit-header-main strong{
+  color: var(--red);
+  filter: brightness(50%);
 }

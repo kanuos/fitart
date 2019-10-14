@@ -37,7 +37,7 @@ const Navbar = () => {
                     Contact
                 </NavLink>
                 
-                <a href="/register" className="navbar-link join-now">Join Now</a>
+                <NavLink to="/register" className="navbar-link join-now">Join Now</NavLink>
             </div>
         </nav>
     )
