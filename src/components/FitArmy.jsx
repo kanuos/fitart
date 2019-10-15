@@ -14,7 +14,7 @@ const FitArmy = () => {
     
     useEffect(()=>{
         setCurrentData(review.slice(prevPage*PER_PAGE ,nextPage*PER_PAGE)) ;
-    },[prevPage, nextPage, sorted]);
+    },[prevPage, nextPage, sorted, review]);
 
     const goToPrevious = () =>{
         if(prevPage){
