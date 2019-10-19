@@ -30,7 +30,7 @@ const data = [
         review: "I LIKE MY TRAINER. I LIKE THE LOOK OF THE STUDIO. I LIKE THE   PEOPLE WHO USE IT. I LIKE THE MIX OF THOSE PEOPLE",
         name: 'Richard Hendricks',
         rating: 5,
-        date: new Date("2015-10-12"),
+        date: new Date("2015-10-21"),
         pic: richard
     },
     {

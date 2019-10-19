@@ -2,6 +2,8 @@ import React, {useContext, useState, useEffect} from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import { ReviewContext } from '../context/ReviewContext'
+import ReviewCard from './ReviewCard';
+import {FaSortAmountDown} from 'react-icons/fa';
 
 const FitArmy = () => {
     const PER_PAGE = 5;
@@ -17,7 +19,7 @@ const FitArmy = () => {
     },[prevPage, nextPage, sorted, review]);
 
     const goToPrevious = () =>{
-        if(prevPage){
+        if(prevPage>0){
             setPrevPage(prevPage - 1)
             setNextPage(nextPage -1)
             setCurrentPage(currentPage - 1)
@@ -25,7 +27,7 @@ const FitArmy = () => {
     }
 
     const goToNext = () =>{
-        if(nextPage<4){
+        if(nextPage<5){
             setPrevPage(prevPage + 1)
             setNextPage(nextPage + 1)
             setCurrentPage(currentPage + 1)
@@ -56,31 +58,32 @@ const FitArmy = () => {
                             Our family has 10,000 members <br/>
                         </span>
                         <h1 className="fit-header-main">
-                            Join the <strong>#FitArmy</strong>
+                            Join the <strong>#FitArmy</strong><br/>NOW
                         </h1>
                     </div>
                 </section>
                 <section className="fit-army-review">
-                    <div className="wrapper">
-                        {!sorted && <button onClick={sortByRating}>Sort By  rating</button>}
-                        {sorted && <button onClick={sortByDate}>Sort By  date</button>}
+                    <h1 className="big-heading">
+                        Reviews
+                    </h1>
+                    <div className="review-btn-case">
+                        {!sorted && <button onClick={sortByRating} className="sort-btn"><FaSortAmountDown/>&nbsp;&nbsp;Sort By  rating</button>}
+                        {sorted && <button onClick={sortByDate} className="sort-btn"><FaSortAmountDown/>&nbsp;&nbsp;Sort By  date</button>}
                    </div>
-                    {currentData.map(entry =>{
-                        return <div key={entry.id}>
-                            <h1>{entry.name}</h1>
-                            <img src={entry.pic} alt={entry.name}/>
-                            <h2>{entry.rating} out of 5</h2>
-                            <small>
-                            {new Date(entry.date).getDate()}-
-                            {new Date(entry.date).getMonth() + 1}-
-                            {new Date(entry.date).getFullYear()}
-                            </small>
-                            <p className="paragraph">{entry.review}</p>
-                        </div>
-                    })}
-                    {prevPage>1 && <button onClick={goToPrevious}>Prev</button>}
-                    <span>&nbsp;{currentPage + 1}&nbsp;</span>
-                    {nextPage<4 && <button onClick={goToNext}>Next</button>}               
+                   <section className="review-list">
+                        {currentData.map(entry =>(<ReviewCard 
+                                key={entry.id}
+                                name={entry.name}
+                                review={entry.review}
+                                rating= {entry.rating}
+                                date = {entry.date.toString()}
+                                pic = {entry.pic}
+                            />
+                        ))}
+                   <div className="page-btn-case">
+                        {prevPage>=1 && <button className="page-btn" onClick={goToPrevious}>Prev</button>}<span className="page-btn page-now">&nbsp;&nbsp;{currentPage + 1}&nbsp;</span>{nextPage<=4 && <button className="page-btn" onClick={goToNext}>Next</button>}               
+                   </div>
+                   </section>
                 </section>
             </div>
             <Footer />

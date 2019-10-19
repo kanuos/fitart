@@ -32,8 +32,6 @@ const Home = () => {
                         <FaAngleDown/>
                     </button>
             </header>
-            <section className="block">
-            </section>
             <div id="about">
                 <AboutHome />
             </div>
